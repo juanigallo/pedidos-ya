@@ -1,0 +1,20 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1000px;
+  .logoContainer {
+    width: 150px;
+    img {
+      width: 100%;
+    }
+  }
+  .listContainer {
+    list-style: none;
+    display: flex;
+    li {
+      margin: 0 10px;
+      color: #fff;
+    }
+  }
+}

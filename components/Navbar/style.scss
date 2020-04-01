@@ -1,8 +1,10 @@
+@import "../../variables.scss";
+
 .nav {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1000px;
+  width: 1000px;
   .logoContainer {
     width: 150px;
     img {
@@ -14,7 +16,7 @@
     display: flex;
     li {
       margin: 0 10px;
-      color: #fff;
+      color: $white;
     }
   }
 }

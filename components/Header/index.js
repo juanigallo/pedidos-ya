@@ -5,10 +5,11 @@ import Search from "../Search";
 
 class Header extends React.Component {
   render() {
+    const { backgroundImg } = this.props;
     return (
       <header
         style={{
-          backgroundImage: `url(${this.props.backgroundImg})`
+          backgroundImage: `url(${backgroundImg})`
         }}
         className={style.header}
       >

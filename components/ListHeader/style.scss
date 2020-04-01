@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+.header {
+  height: 160px;
+  width: 100%;
+  background-size: cover;
+  .innerWrapper {
+    width: 1000px;
+    height: 160px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: $white;
+    font-weight: bold;
+    h3 {
+      font-size: 32px;
+      margin: 0 0 5px 0;
+    }
+  }
+}

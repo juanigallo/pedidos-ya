@@ -1,5 +1,14 @@
 import "../styles.scss";
+import App from "next/app";
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
+
+MyApp.getInitialProps = async appContext => {
+  const appProps = await App.getInitialProps(appContext);
+
+  return { ...appProps };
+};
+
+export default MyApp;

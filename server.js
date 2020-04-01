@@ -15,6 +15,10 @@ const ZoneController = require("./controllers/ZoneController");
 const ZoneService = require("./services/ZoneService");
 const ZoneInstance = new ZoneController(new ZoneService());
 
+const ShopController = require("./controllers/ShopController");
+const ShopService = require("./services/ShopService");
+const ShopInstance = new ShopController(new ShopService());
+
 app.prepare().then(() => {
   const server = express();
 
@@ -30,15 +34,19 @@ app.prepare().then(() => {
   server.use(cookieParser());
 
   server.get("/", (req, res) => {
-    return app.render(req, res, "/home");
+    return app.render(req, res, "/home", req.query);
   });
 
   server.get("/listado", (req, res) => {
-    return app.render(req, res, "/list");
+    return app.render(req, res, "/list", req.query);
   });
 
   server.get("/api/zones", (req, res) => ZoneInstance.get(req, res));
   server.post("/api/zones", (req, res) => ZoneInstance.add(req, res));
+
+  server.get("/api/shops", (req, res) => ShopInstance.get(req, res));
+  server.get("/api/shops/:id", (req, res) => ShopInstance.getById(req, res));
+  server.post("/api/shops", (req, res) => ShopInstance.add(req, res));
 
   server.get("*", (req, res) => {
     return handle(req, res);

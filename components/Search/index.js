@@ -1,9 +1,26 @@
 import React from "react";
 import style from "./style.scss";
 import SelectZone from "../SelectZone";
+import Link from "next/link";
 
 class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: ""
+    };
+  }
+
+  handleAddress(e) {
+    const value = e.target.value;
+
+    this.setState({
+      address: value
+    });
+  }
+
   render() {
+    const { address } = this.state;
     return (
       <div className={style.mainContainer}>
         <h2 className={style.searchTitle}>¡Volá con tu delivery online!</h2>
@@ -17,6 +34,8 @@ class Search extends React.Component {
                 className={style.input}
                 placeholder="Calle y número de puerta"
                 type="text"
+                value={address}
+                onChange={e => this.handleAddress(e)}
               />
             </div>
           </div>
@@ -31,8 +50,11 @@ class Search extends React.Component {
               />
             </div>
           </div>
+
           <div className={style.buttonContainer}>
-            <button className={style.button}>Buscar</button>
+            <Link href={`/listado?direccion=${address}`}>
+              <button className={style.button}>Buscar</button>
+            </Link>
           </div>
         </div>
       </div>

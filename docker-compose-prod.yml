@@ -1,0 +1,15 @@
+version: "2.1"
+
+services:
+  pedidosya:
+    container_name: pedidosya
+    image: pedidosya
+    restart: always
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    logging:
+      options:
+        max-size: 50m

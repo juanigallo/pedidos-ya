@@ -2,13 +2,13 @@ version: 2
 jobs:
   deploy:
     machine: true
-    working_directory: ~/copia-pedidosya
+    working_directory: ~/pedidos-ya
     steps:
       - checkout
       - run:
           name: Deploy prod
-          working_directory: ~/copia-pedidosya
-          command: ssh -o "StrictHostKeyChecking no" root@161.35.58.218 -y "cd ~/copia-pedidosya;git stash;git checkout master; git pull origin master; sudo docker-compose -f docker-compose-prod.yml up --build -d; sudo docker system prune -f"
+          working_directory: ~/pedidos-ya
+          command: ssh -o "StrictHostKeyChecking no" root@161.35.58.218 -y "cd ~/pedidos-ya;git stash;git checkout master; git pull origin master; sudo docker-compose -f docker-compose-prod.yml up --build -d; sudo docker system prune -f"
 workflows:
   version: 2
   build:

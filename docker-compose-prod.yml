@@ -13,13 +13,15 @@ services:
     logging:
       options:
         max-size: 50m
+    links:
+      - mongo-pedidosya
   mongo-pedidosya:
     container_name: mongo-pedidosya
     image: mongo
     restart: always
     ports:
       - "27017:27017"
-  networks:
-    default:
-      external:
-        name: pedidosya-network
+networks:
+  default:
+    external:
+      name: pedidosya-network
